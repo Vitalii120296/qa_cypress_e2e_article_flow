@@ -1,6 +1,6 @@
 /// <reference types='cypress' />
 
-const { generateUser } = require('../support/e2e');
+const { generateUserData } = require('../support/e2e');
 
 describe('', () => {
   before(() => {
@@ -8,7 +8,7 @@ describe('', () => {
   });
 
   it('create the article', () => {
-    const { email, username, password } = generateUser();
+    const { email, username, password } = generateUserData();
 
     cy.login(email, username, password);
 
@@ -21,8 +21,8 @@ describe('', () => {
     cy.createArticle(article.title, article.description, article.body);
   });
 
-  it.skip('delete the article', function () {
-    const { email, username, password } = generateUser();
+  it('delete the article', function () {
+    const { email, username, password } = generateUserData();
     cy.login(email, username, password);
 
     const article = {
