@@ -19,6 +19,10 @@ describe('', () => {
     };
 
     cy.createArticle(article.title, article.description, article.body);
+
+    cy.visit('/');
+
+    cy.contains('h1', article.title).should('include.text');
   });
 
   it('delete the article', function () {
@@ -35,5 +39,9 @@ describe('', () => {
         cy.deleteArticle(slug);
       }
     );
+
+    cy.visit('/');
+
+    cy.contains('h1', article.title).should('not.include.text');
   });
 });

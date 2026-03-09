@@ -21,7 +21,7 @@ const { faker } = require('@faker-js/faker');
 // require('./commands')
 
 export function generateUserData() {
-  const randomNumber = Math.floor(Math.random(1000) * 1000);
+  const randomNumber = Math.floor(Math.random() * 1000);
   const email = `test${Date.now()}@gmail.com`;
   const username = faker.person.firstName() + randomNumber;
   const password = `test${Date.now()}`;
